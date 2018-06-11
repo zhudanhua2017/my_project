@@ -108,7 +108,7 @@ public class BusinessServiceImpl implements BusinessService{
 				fileName = FileUtil.save(dto.getImgFile(), savePath);
 				business.setImgFileName(fileName);
 			}catch (Exception e) {
-				// TODO 需要添加日志
+
 				return false;
 			}
 		}
@@ -130,7 +130,7 @@ public class BusinessServiceImpl implements BusinessService{
 		Business businessForSelect = new Business();
 		BeanUtils.copyProperties(businessDto, businessForSelect);
 		// 当关键字不为空时，把关键字的值分别设置到标题、副标题、描述中
-		// TODO 改进做法：全文检索
+		
 		if (!CommonUtil.isEmpty(businessDto.getKeyword())) {
 			businessForSelect.setTitle(businessDto.getKeyword());
 			businessForSelect.setSubtitle(businessDto.getKeyword());

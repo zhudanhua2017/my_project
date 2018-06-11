@@ -1,10 +1,14 @@
 package com.zdh.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.zdh.constant.ApiCodeEnum;
 
 @JsonInclude(Include.NON_NULL)
+@Getter @Setter
 public class ApiCodeDto {
 
 	private Integer errno;//存放ApiCodeEnum.java中的状态码
@@ -29,35 +33,4 @@ public class ApiCodeDto {
 		this.msg = apiCodeEnum.getMsg();
 	}
 
-	public Integer getErrno() {
-		return errno;
-	}
-
-	public void setErrno(Integer errno) {
-		this.errno = errno;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 }

@@ -38,8 +38,3 @@ common.pageCode = {
 		"MODIFY_SUCCESS" : 1100,
 		"REMOVE_SUCCESS" : 1200
 }
-
-common.menuPrefix = {
-		"PREFIX_MENU" : "MENU_",
-		"PREFIX_ACTION" : "ACTION_"
-}

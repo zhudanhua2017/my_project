@@ -1,7 +1,11 @@
 package com.zdh.bean;
 
 import lombok.*;
-
+/**
+ * 会员
+ * @author Administrator
+ *
+ */
 @Setter @Getter
 public class Member {
 	

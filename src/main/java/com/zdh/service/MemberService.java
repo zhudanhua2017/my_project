@@ -53,6 +53,11 @@ public interface MemberService {
      */
     Long getIdByPhone(Long phone);
     
+    /**
+     * 根据会员id拿到会员手机号
+     * @param memberId
+     * @return 会员手机号
+     */
     Long getPhoneById(Long memberId);
     
     

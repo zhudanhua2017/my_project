@@ -2,7 +2,10 @@ package com.zdh.bean;
 
 import lombok.Getter;
 import lombok.Setter;
-
+/**
+ * 用户
+ * @author Administrator
+ */
 @Setter @Getter
 public class User {
 	

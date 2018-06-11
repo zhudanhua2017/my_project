@@ -50,13 +50,13 @@ public class ApiController {
 	
 	
 	@Value("${ad.number}")
-	private int adNumber;
+	private int adNumber;  //首页广告列表接口每页条数
 
 	@Value("${businessHome.number}")
-	private int businessHomeNumber;
+	private int businessHomeNumber;  //首页商户推荐列表每页条数
 	
 	@Value("${businessSearch.number}")
-	private int businessSearchNumber;
+	private int businessSearchNumber;  //商户搜索列表每页条数
 	/**
 	 * 首页 —— 广告（超值特惠）
 	 */
@@ -64,7 +64,7 @@ public class ApiController {
 	public List<AdDto> homead() {
 		
 		AdDto adDto = new AdDto();
-		adDto.getPage().setPageNumber(6);
+		adDto.getPage().setPageNumber(adNumber);   
 		return adService.searchByPage(adDto);
 		
 	}
@@ -74,7 +74,7 @@ public class ApiController {
 	 */
 	@RequestMapping(value = "/homelist/{city}/{page.currentPage}", method = RequestMethod.GET)
 	public BusinessListDto homelist(BusinessDto businessDto) {
-		businessDto.getPage().setPageNumber(adNumber);
+		businessDto.getPage().setPageNumber(businessHomeNumber); //设置前端页面该模块可以显示的广告的数量
 		return businessService.searchByPageForApi(businessDto);
 	}
 	
@@ -110,7 +110,7 @@ public class ApiController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ApiCodeDto login(@RequestParam("username") Long username, @RequestParam("code") String code) {
 		ApiCodeDto dto;
-		// 1、用手机号取出保存的md5(6位随机数)，能取到，并且与提交上来的code值相同为校验通过
+		// 1、用手机号取出保存的md5(6位随机数)，能取到，并且与提交上来的code值相同,校验通过
 		String saveCode = memberService.getCode(username);
 		if (saveCode != null) {
 			if (saveCode.equals(code)) {
@@ -186,7 +186,7 @@ public class ApiController {
 			ordersDto.setMemberId(memberId);
 			ordersService.add(ordersDto);
 			dto = new ApiCodeDto(ApiCodeEnum.SUCCESS);
-			// 4、TODO 还有一件重要的事未做
+			
 		} else {
 			dto = new ApiCodeDto(ApiCodeEnum.NOT_LOGGED);
 		}
@@ -207,7 +207,7 @@ public class ApiController {
 	@RequestMapping(value = "/submitComment", method = RequestMethod.POST)
 	public ApiCodeDto submitComment(CommentForSubmitDto dto) {
 		ApiCodeDto result;
-		// TODO 需要完成的步骤：
+		// 需要完成的步骤：
 		// 1、校验登录信息：token、手机号
 		Long phone = memberService.getPhone(dto.getToken());
 		if (phone != null && phone.equals(dto.getUsername())) {
@@ -219,8 +219,7 @@ public class ApiController {
 				// 4、保存评论
 				commentService.add(dto);
 				result = new ApiCodeDto(ApiCodeEnum.SUCCESS);
-				// TODO
-				// 5、还有一件重要的事未做
+				
 			} else {
 				result = new ApiCodeDto(ApiCodeEnum.NO_AUTH);
 			}

@@ -16,7 +16,7 @@ public class BusinessDto extends Business{
     private String img;
     private MultipartFile imgFile;
     private String keyword;
-    private Integer mumber;
+    private Integer mumber;  //为了与前端数据相匹配，mumber=number
     private Integer star;
     
 }

@@ -20,19 +20,6 @@
 				<div class="current">当前位置：<a href="#">内容管理</a> &gt; 订单查询</div>
 				<div class="rightCont">
 					<p class="g_title fix">订单列表</p>
-					<table class="tab1">
-						<tbody>
-							<tr>
-								<td width="80" align="right">手机号：</td>
-								<td>
-									<input name="phone" id="phone" value="${searchParam.member.phone}" class="allInput" type="text" />
-								</td>
-	                            <td style="text-align: right;" width="150">
-	                            	<input class="tabSub" value="查询" onclick="search('1');" type="button" />&nbsp;&nbsp;&nbsp;&nbsp;
-	                            </td>
-	       					</tr>
-						</tbody>
-					</table>
 					<div class="zixun fix">
 						<table class="tab2" width="100%">
 							<tbody>
@@ -53,9 +40,7 @@
 							</tbody>
 						</table>
 						
-						<!-- 分页 -->
-						
-
+<!-- 分页 -->
 <script type="text/javascript">
 	function transCurrentPage(currentPage) {
 		var rule = /^[0-9]*[1-9][0-9]*$/;
@@ -66,18 +51,17 @@
 	}
 </script>
 
-<div class="page fix">
-	<a href="javascript:transCurrentPage('1');" class="first">首页</a>
-	<a href="javascript:transCurrentPage('0');" class="pre">上一页</a>
-	当前第<span>1/1</span>页
-	<a href="javascript:transCurrentPage('2');" class="next">下一页</a>
-	<a href="javascript:transCurrentPage('1');" class="last">末页</a>
-	跳至 &nbsp;<input id="currentPageText" value="1" class="allInput w28" type="text" />&nbsp;页 &nbsp;
-	<a href="javascript:transCurrentPage($('#currentPageText').val());" class="go">GO</a>
-</div>
+						<div class="page fix">
+							<a href="javascript:transCurrentPage('1');" class="first">首页</a>
+							<a href="javascript:transCurrentPage('0');" class="pre">上一页</a>
+							当前第<span>1/1</span>页
+							<a href="javascript:transCurrentPage('2');" class="next">下一页</a>
+							<a href="javascript:transCurrentPage('1');" class="last">末页</a>
+							跳至 &nbsp;<input id="currentPageText" value="1" class="allInput w28" type="text" />&nbsp;页 &nbsp;
+							<a href="javascript:transCurrentPage($('#currentPageText').val());" class="go">GO</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</form>
-	
 </body></html>

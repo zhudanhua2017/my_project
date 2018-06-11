@@ -21,6 +21,12 @@ public class OrdersController {
 	@Autowired
 	private MemberService memberService;
 	
+	/**
+	 * 订单列表
+	 * @param model
+	 * @param ordersDto
+	 * @return
+	 */
 	@RequestMapping(method=RequestMethod.GET)
 	public String init(Model model,OrdersDto ordersDto) {
 		List<OrdersDto> list = ordersService.getOrdersList(ordersDto);

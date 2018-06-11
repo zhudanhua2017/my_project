@@ -5,7 +5,11 @@ import lombok.Setter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
+/**
+ * 商户
+ * @author Administrator
+ *
+ */
 @JsonInclude(Include.NON_NULL)
 @Getter @Setter
 public class Business extends BaseBean{

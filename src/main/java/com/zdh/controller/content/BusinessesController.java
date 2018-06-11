@@ -77,6 +77,8 @@ public class BusinessesController {
 
 	/**
 	 * 商户新增页初始化
+	 * @param model
+	 * @return
 	 */
 	@RequestMapping(value="addInit",method=RequestMethod.GET)
 	public String addInit(Model model){

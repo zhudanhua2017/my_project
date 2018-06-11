@@ -25,7 +25,10 @@ public interface CommentService {
      */
     CommentListDto getListByBusinessId(Long businessId,Page page);
     
-    
+    /**
+     * 查询Comment对象
+     * @return CommentDto对象
+     */
     List<CommentDto> getCommentList();
     
 }

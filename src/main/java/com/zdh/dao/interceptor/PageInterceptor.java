@@ -20,12 +20,18 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 
 import com.zdh.bean.BaseBean;
 import com.zdh.bean.Page;
-
+/**
+ * 分页拦截器
+ * @author Administrator
+ *
+ */
 @Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
 public class PageInterceptor implements Interceptor{
 
 	public Object intercept(Invocation invocation) throws Throwable {
+		//获取拦截对象
 		StatementHandler statementHandler = (StatementHandler)invocation.getTarget();
+		
 		MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY, SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,new DefaultReflectorFactory());
 		MappedStatement mappedStatement = (MappedStatement)metaObject.getValue("delegate.mappedStatement");
 		String id = mappedStatement.getId();
@@ -33,6 +39,7 @@ public class PageInterceptor implements Interceptor{
 			BoundSql boundSql = statementHandler.getBoundSql();
 			String sql = boundSql.getSql();
 			String countSql = "select count(*) from(" + sql + ")t";
+			//获取拦截方法的第一个参数
 			Connection conn = (Connection)invocation.getArgs()[0];
 			PreparedStatement statement = conn.prepareStatement(countSql);
 			ParameterHandler parameterHandler = (ParameterHandler)metaObject.getValue("delegate.parameterHandler");

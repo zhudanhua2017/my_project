@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * 登录相关
+ * @author Administrator
+ *
  */
 @Controller
 @RequestMapping("/login")
@@ -45,7 +47,7 @@ public class LoginController {
 	
 
 	/**
-	 * 验证用户名/密码是否正确 验证通过跳转至后台管理首页，验证失败，返回至登录页。
+	 * 验证用户名/密码是否正确。 验证通过，跳转至后台管理首页，验证失败，返回至登录页。
 	 */
 	@RequestMapping("/validate")
 	public String validate(UserDto userDto, RedirectAttributes attr) {

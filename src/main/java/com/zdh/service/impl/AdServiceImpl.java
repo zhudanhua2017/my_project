@@ -21,17 +21,14 @@ public class AdServiceImpl implements AdService{
 	private AdDao adDao;
 	
 	@Value("${adImageSavePath}")
-	private String adImageSavePath;
+	private String adImageSavePath; //图片保存路径
 	
 	@Value("${adImageUrl}")
-	private String adImageUrl;
+	private String adImageUrl; //访问图片地址
 	
 	@Override
 	public boolean add(AdDto adDto){
 		Ad ad = new Ad();
-		/*ad.setTitle(adDto.getTitle());
-		ad.setLink(adDto.getLink());
-		ad.setWeight(adDto.getWeight());*/
 		BeanUtils.copyProperties(adDto,ad);
 		if (adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
 			
@@ -49,7 +46,6 @@ public class AdServiceImpl implements AdService{
 				adDao.insert(ad);
 				return true;
 			} catch (Exception e) {
-				// TODO 需要添加日志
 				return false;
 			}
 		} else {
@@ -102,7 +98,7 @@ public class AdServiceImpl implements AdService{
 				fileName = FileUtil.save(adDto.getImgFile(), adImageSavePath);
 				ad.setImgFileName(fileName);
 			}catch (Exception e) {
-				// TODO 需要添加日志
+				
 				return false;
 			}
 		}

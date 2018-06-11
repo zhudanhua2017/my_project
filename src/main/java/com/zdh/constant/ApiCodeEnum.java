@@ -5,7 +5,6 @@ import lombok.Getter;
 /**
  * 接口状态码枚举
  * @author Administrator
- *
  */
 @Getter
 public enum ApiCodeEnum {

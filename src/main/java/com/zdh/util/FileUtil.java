@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
 
+	//删除文件
 	public static boolean delete(String filePath){
 		File file = new File(filePath);
 		if(file.isFile()){
@@ -17,6 +18,7 @@ public class FileUtil {
 		return false;
 	}
 	
+	//保存文件
 	public static String save(MultipartFile file, String savePath) throws IllegalStateException, IOException{
 		if (file != null && file.getSize() > 0) {
 			File fileFolder = new File(savePath);

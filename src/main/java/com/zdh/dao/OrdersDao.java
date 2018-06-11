@@ -34,5 +34,4 @@ public interface OrdersDao {
 	 */
 	List<Orders> select(Orders orders);
 	
-	Long getIdByPhone(Long phone);
 }

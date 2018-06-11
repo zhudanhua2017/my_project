@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * token缓存，存放token与对应的用户信息（这里存放的是用户手机号）
+ * @author Administrator
  */
 public class TokenCache {
     private static TokenCache instance;
@@ -20,7 +21,7 @@ public class TokenCache {
 	    synchronized (TokenCache.class) {
 		if (instance == null) {
 		    instance = new TokenCache();
-		}
+			}
 	    }
 	}
 	return instance;
@@ -32,7 +33,7 @@ public class TokenCache {
      * @param phone 手机号
      */
     public void save(String token, Long phone) {
-	tokenMap.put(token, phone);
+    	tokenMap.put(token, phone);
     }
 
     /**
@@ -41,6 +42,6 @@ public class TokenCache {
      * @return 手机号
      */
     public Long getPhone(String token) {
-	return tokenMap.get(token);
+    	return tokenMap.get(token);
     }
 }

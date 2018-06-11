@@ -2,6 +2,7 @@ package com.zdh.constant;
 
 /**
  * 评论状态常量，根据前端数据获得的，0：未评论 2：已评论
+ * @author Administrator
  */
 public class CommentStateConst {
     /**

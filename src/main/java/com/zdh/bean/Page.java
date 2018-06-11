@@ -1,9 +1,9 @@
 package com.zdh.bean;
 
 import lombok.*;
-
 /**
  * 分页对象
+ * @author Administrator
  */
 @Setter @Getter
 public class Page {
@@ -22,6 +22,9 @@ public class Page {
 	    this.pageNumber = 5;
 	}
 
+	/**
+	 * 计算总页数
+	 */
 	public void count() {
 		this.totalPage = this.totalNumber / this.pageNumber;
 		if(this.totalNumber % this.pageNumber > 0) {

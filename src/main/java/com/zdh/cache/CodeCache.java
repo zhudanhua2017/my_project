@@ -5,8 +5,10 @@ import java.util.Map;
 
 /**
  * 验证码缓存，存放用户手机号与所下发的验证码
+ * @author Administrator
  */
 public class CodeCache {
+	
 	private static CodeCache instance;  //单例模式
 	
 	private Map<Long,String> codeMap;

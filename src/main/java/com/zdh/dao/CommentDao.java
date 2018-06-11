@@ -18,5 +18,9 @@ public interface CommentDao {
      */
     int insert(Comment comment);
     
+    /**
+     * 查询全部评论
+     * @return 评论列表
+     */
     List<Comment> select();
 }

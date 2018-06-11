@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 @Getter @Setter
 public class BusinessListDto {
+	
 	private boolean hasMore;
 	private List<BusinessDto> data;
 	

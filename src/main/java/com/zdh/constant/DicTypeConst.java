@@ -2,6 +2,7 @@ package com.zdh.constant;
 
 /**
  * 字典表--类型定义
+ * @author Administrator
  */
 public class DicTypeConst {
     /**

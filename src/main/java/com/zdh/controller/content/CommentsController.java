@@ -16,11 +16,16 @@ public class CommentsController {
 	@Autowired
 	private CommentService commentService;
 	
+	/**
+	 * 评论列表
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping
-	public String init(Model model) {
+	public String init(Model model,CommentDto commentDto) {
 		List<CommentDto> result = commentService.getCommentList();
 		model.addAttribute("commentList", result);
-		/*model.addAttribute("searchParam", commentDto);*/
+		model.addAttribute("searchParam",commentDto);
 		return "/content/commentList";
 	}
 }
